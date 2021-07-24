@@ -32,8 +32,6 @@
  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
  
 
-
-
 </head>
 <body>
 
@@ -42,27 +40,65 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
 
-      <!-- The surrounding HTML is left untouched by FirebaseUI.
-     Your app may use that space for branding, controls and other customizations.-->
-
-     <div class="row">
+    <div class="row">
       <div class="six columns" style="margin-top: 10%">
         <h2>Watch List</h2>
         <p>Inspired by <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library">this project</a> from The Odin Project. Altered to...</p>
       </div>
     </div>
-
-     <div id="firebaseui-auth-container"></div>
-     <div id="loader">Loading...</div>
-     <div id="testUserButton">
-       <button id="TUButton">Test User</button>
-     </div>
-
-
     
+    <form>
+    <div class="row">
+
+        <div class="three columns">
+            <label for="exampleTickerInput">Ticker</label>
+            <input class="u-full-width" type="text" placeholder="TSLA" id="TickerInput">
+        </div>
+
+        <div class="three columns">
+            <label for="exampleEntryInput">Entry</label>
+            <input class="u-full-width" type="number" placeholder="100" id="EntryInput">
+        </div>
+
+        <div class="three columns">
+            <label for="exampleExitInput">Exit</label>
+            <input class="u-full-width" type="number" placeholder="150" id="ExitInput">
+        </div>
+
+        <div class="three columns">
+        <label for="exampleRecipientInput">Track Price?</label>
+        <select class="u-full-width" id="TrackingInput">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        </div>
+
+        <input class="button-primary" id = "submitButton" type="button" value="Submit">
+
+    </form>
+
+    <table id = "table" class="u-full-width">
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Entry</th>
+            <th>Exit</th>
+            <th>Tracking</th>
+            <th>     </th>
+          </tr>
+        </thead>
+        <tbody id = "tableBody">
+
+        </tbody>
+      </table>
+
+      <input class="button-primary" type="submit" value="Save">
 
   </div>
 
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="script.js"></script>
 
 <!-- -->
  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
@@ -77,9 +113,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
 
-
-<!-- -->
-  <script src="login.js"></script>
 
 
 

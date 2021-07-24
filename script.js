@@ -31,6 +31,8 @@ submitButton.onclick = function(){
     refreshItems(stock)
 };
 
+
+
 //if innertext of the html element == stock.ticker then it's good to delete from the array and then refresh the whole thing
 function refreshItems(stock){
 
