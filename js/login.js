@@ -1,10 +1,8 @@
+// var testUserButton = document.querySelector("#TUButton");
 
-
-var testUserButton = document.querySelector("#TUButton");
-
-testUserButton.onclick = function(){
-    window.location.href = "app.html";
-};
+// testUserButton.onclick = function(){
+//     window.location.href = "app.html";
+// };
 
 //------
 
