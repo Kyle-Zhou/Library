@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Watch List</title>
+  <title>Stock Tracker</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -30,11 +30,9 @@
  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
- 
 
 </head>
 <body>
-
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -42,8 +40,8 @@
 
     <div class="row">
       <div class="six columns" style="margin-top: 10%">
-        <h2>Watch List</h2>
-        <p>Inspired by <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library">this project</a> from The Odin Project. Altered to...</p>
+        <h2>Stock Tracker</h2>
+        <p>Entry and exit values don't save to the database. They're only placeholders for now.</p>
       </div>
     </div>
     
@@ -77,7 +75,7 @@
 
     </form>
 
-    <table id = "table" class="u-full-width">
+      <table id = "table" class="u-full-width">
         <thead>
           <tr>
             <th>Ticker</th>
@@ -87,35 +85,28 @@
             <th>     </th>
           </tr>
         </thead>
-        <tbody id = "tableBody">
+        <tbody id="tableBody">
 
         </tbody>
       </table>
 
-      <input class="button-primary" type="submit" value="Save">
+    </div>
 
-  </div>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script src="script.js"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
 
-<!-- -->
- <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+    
+    <script src="/js/app.js"></script>
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
-
-
-
-
-</body>
+  </body>
 
 </html>

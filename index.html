@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Watch List</title>
+  <title>Stock Tracker</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -31,13 +31,9 @@
  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
  
-
-
-
 </head>
+
 <body>
-
-
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
@@ -46,26 +42,26 @@
      Your app may use that space for branding, controls and other customizations.-->
 
      <div class="row">
-      <div class="six columns" style="margin-top: 10%">
-        <h2>Watch List</h2>
-        <p>Inspired by <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library">this project</a> from The Odin Project. Altered to...</p>
+      <div class="eleven columns" style="margin-top: 10%">
+        <h2>Stock Tracker</h2>
+        <p>- Inspired by <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/library" target="_blank">this project</a> from The Odin Project. 
+          <br>- Stock watchlist/library 
+          <br>- Uses Google Firebase for user login and data storage
+          <br>- To add: web scraping <a href="https://www.tradingview.com/" target="_blank">Trading View</a> to pull important stock data and notify users of any changes via email
+        </p>
       </div>
     </div>
 
      <div id="firebaseui-auth-container"></div>
      <div id="loader">Loading...</div>
-     <div id="testUserButton">
+     <!-- <div id="testUserButton">
        <button id="TUButton">Test User</button>
-     </div>
-
-
-    
+     </div> -->
 
   </div>
 
-
-<!-- -->
- <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- -->
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
@@ -76,13 +72,9 @@
   <!-- Add Firebase products that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
-
-
 <!-- -->
-  <script src="login.js"></script>
 
-
-
+  <script src="/js/login.js"></script>
 </body>
 
 </html>
