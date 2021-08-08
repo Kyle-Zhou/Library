@@ -64,7 +64,7 @@ function refreshItems(stock){
     for (let i = 0; i < stockArray.length; i++) {
         stockArray[i].index = i;
         table.insertAdjacentHTML("beforeend", tableItemTemplate(stockArray[i]));
-        slots.insertAdjacentHTML("beforeend", tradingViewWidget(stockArray[i]));
+        //slots.insertAdjacentHTML("beforeend", tradingViewWidget(stockArray[i]));
     }
 
 }
@@ -119,15 +119,15 @@ function tableItemTemplate(stock){
 }
 
 
-function tradingViewWidget(stock){
-    var html = `
+// function tradingViewWidget(stock){
+//     var html = `
 
-    `
+//     `
 
-    return html;
+//     return html;
 
 
-}
+// }
 
 
 function refreshStockArray(){
@@ -159,7 +159,7 @@ function deleteStock(stock, index){
     stockArray.splice(index, 1);
     for (let i = 0; i < stockArray.length; i++) {
         table.insertAdjacentHTML("beforeend", tableItemTemplate(stockArray[i]));
-        slots.insertAdjacentHTML("beforeend", tradingViewWidget(stockArray[i]));
+        //slots.insertAdjacentHTML("beforeend", tradingViewWidget(stockArray[i]));
     }
 
 
@@ -178,7 +178,7 @@ function readDataBase(){
         
         for (let i = 0; i < items.length; i++) {
             table.insertAdjacentHTML("beforeend", tableItemTemplate(items[i]));
-            slots.insertAdjacentHTML("beforeend", tradingViewWidget(items[i]));
+            //slots.insertAdjacentHTML("beforeend", tradingViewWidget(items[i]));
             stockArray.push(items[i]);
         }
     } else {

@@ -16,6 +16,8 @@ userRef = db.ref("users");
 var dbInfo;
 var dbArray = [];
 
+var emailSender = require('./email');
+
 // Attach an asynchronous callback 
 userRef.on('value', (snapshot) => {
     dbInfo = snapshot.val();
@@ -49,6 +51,19 @@ const listAllUsers = (nextPageToken) => {
 };
 
     
+
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'automated.dev.email@gmail.com',
+      pass: '5aWpY9Gb3Brd'
+    }
+  });
+
+
+var doneUser = false;
+
 function checkScrape(userRecord){
     var container;
     var email;
@@ -60,13 +75,37 @@ function checkScrape(userRecord){
             container = element[1];
             var tickers = [];
             tickers = (Object.values(container));
+            var emailObject = {};
+            doneUser = false;
+
             tickers.forEach((ticker) => {
                 if (ticker['tracking'] === 'Yes'){
                     var t = ticker['ticker'];
                     scrape(t, email);
                 }  
+            })  
+            doneUser = true;
 
-            })       
+            // const emailText = JSON.stringify(emailObject);
+
+            // console.log(emailObject);
+            // var mailOptions = {
+            //     from: 'automated.dev.email@gmail.com',
+            //     to: email,
+            //     subject: 'Stock tracker - TV - Node.js',
+            //     text: emailText
+            // };     
+
+
+            // transporter.sendMail(mailOptions, function(error, info){
+            //     if (error) {
+            //       console.log(error);
+            //     } else {
+            //       console.log('Email sent: ' + info.response);
+            //     }
+            //   });
+
+
         } 
     })
     console.log(" ");
@@ -89,9 +128,16 @@ function scrape(ticker, email){
       const summaryContainer = $('.speedometerWrapper-DPgs-R4s.summary-DPgs-R4s');
           
       summaryContainer.each(function () {
-          const x = $(this).find('.speedometerSignal-DPgs-R4s').text();
-          console.log(ticker + ": " + x);
-          
+          const buyRating = $(this).find('.speedometerSignal-DPgs-R4s').text();
+          console.log(ticker + ": " + buyRating);
+          if (doneUser == false){
+            emailObject.ticker = buyRating;
+          } else if (doneUser == true) {
+
+            console.log(emailObject);
+
+            emailObject = {};
+          }
       });
 
     })
@@ -101,31 +147,7 @@ function scrape(ticker, email){
 
 
 
-function testScrape(){
-    const url = 'https://www.tradingview.com/symbols/NASDAQ-MSFT/technicals/';
-   
-    puppeteer
-      .launch()
-      .then(browser => browser.newPage())
-      .then(page => {
-        return page.goto(url).then(function() {
-          return page.content();
-        });
-      })
-      .then(html => {
-        const $ = cheerio.load(html);
-        const summaryContainer = $('.speedometerWrapper-DPgs-R4s.summary-DPgs-R4s');
-            
-        summaryContainer.each(function () {
-            const x = $(this).find('.speedometerSignal-DPgs-R4s').text();
-            console.log(x);
-            
-        });
-  
-      })
-      .catch(console.error);
 
-}
 
 
 

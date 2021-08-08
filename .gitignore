@@ -1,2 +1,5 @@
 node_modules
 admin.json
+.DS_Store
+scraper.js
+email.js
