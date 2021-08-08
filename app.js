@@ -1,6 +1,8 @@
 var table = document.querySelector("#tableBody");
 var submitButton = document.querySelector("#submitButton");
 const stockArray = [];
+var slots = document.querySelector("#TVslots");
+
 
   // Set the configuration for your app
   // TODO: Replace with your project's config object
@@ -62,6 +64,7 @@ function refreshItems(stock){
     for (let i = 0; i < stockArray.length; i++) {
         stockArray[i].index = i;
         table.insertAdjacentHTML("beforeend", tableItemTemplate(stockArray[i]));
+        slots.insertAdjacentHTML("beforeend", tradingViewWidget(stockArray[i]));
     }
 
 }
@@ -109,11 +112,23 @@ function tableItemTemplate(stock){
         <td><input class="u-full-width" type="number" placeholder="00.00" id="exit" value = 0></td>
         <td> <button type="button">${stock.tracking}</button> </td>
         <td> <button type="button">delete</button> </td>
-
+        
     </tr>
     `
     return html;
 }
+
+
+function tradingViewWidget(stock){
+    var html = `
+
+    `
+
+    return html;
+
+
+}
+
 
 function refreshStockArray(){
 
@@ -140,9 +155,11 @@ function deleteStock(stock, index){
     });
 
     table.innerHTML = '';
+    slots.innerHTML = '';
     stockArray.splice(index, 1);
     for (let i = 0; i < stockArray.length; i++) {
         table.insertAdjacentHTML("beforeend", tableItemTemplate(stockArray[i]));
+        slots.insertAdjacentHTML("beforeend", tradingViewWidget(stockArray[i]));
     }
 
 
@@ -161,6 +178,7 @@ function readDataBase(){
         
         for (let i = 0; i < items.length; i++) {
             table.insertAdjacentHTML("beforeend", tableItemTemplate(items[i]));
+            slots.insertAdjacentHTML("beforeend", tradingViewWidget(items[i]));
             stockArray.push(items[i]);
         }
     } else {
@@ -177,7 +195,4 @@ function writeUserData(userId, stock) {
       tracking: stock.tracking,
   });
 }
-
-
-
 
