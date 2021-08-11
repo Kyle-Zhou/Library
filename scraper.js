@@ -1,6 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
+const schedule = require('node-schedule');
 
 var admin = require('firebase-admin');
 
@@ -16,9 +17,15 @@ userRef = db.ref("users");
 var dbInfo;
 var dbArray = [];
 
-var emailSender = require('./email');
+// userRef.once('value', (data) => {
+//     // do some stuff once
+//     dbInfo = data.val();
+//     dbArray = (Object.entries(dbInfo));
+//     listAllUsers();
+// });
+  
 
-// Attach an asynchronous callback 
+//Attach an asynchronous callback 
 userRef.on('value', (snapshot) => {
     dbInfo = snapshot.val();
     dbArray = (Object.entries(dbInfo));
@@ -56,7 +63,10 @@ var nodemailer = require('nodemailer');
 var emailFile = require('./email');
 var password = (emailFile.password);
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    service:'gmail',
+    secure: false,
     auth: {
         user: 'automated.dev.email@gmail.com',
         pass: password
