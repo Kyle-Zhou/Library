@@ -27,4 +27,4 @@ Server: node.js (puppeteer) web scraping app hosted on heroku. Nodemailer sends 
 
 ## IV. Issues
 
-WebDriver’s like Puppeteer usually have some issues running on cloud based hosting platforms like Heroku. Timeout/crashing issues arise when too many users are created and add too many different stocks to screen. Or maybe it’s just poorly planned code. That’s probably it. 
+WebDriver’s like Puppeteer usually have some issues running on cloud based hosting platforms like Heroku. Timeout/crashing issues arise when too many users are created and add too many different stocks to screen. Or maybe it’s just the code. That’s probably it. 
